@@ -6,8 +6,58 @@
     <title>Weather Forecast Application</title>
     <link href="./output.css" rel="stylesheet">
   </head>
-  <body>
-    <h1 class="text-8xl text-green-600">TAILWIND</h1>
-    <p class="text-8xl text-green-600">HI</p>
+  <body class="p-5">
+    <div class=" h-3/5 w-full glass-morphism">
+
+    </div>
+    <div class="flex gap-3 pt-4 ">
+
+      <!-- search widget -->
+      <div
+        class=" flex flex-col items-center gap-2 h-full w-1/5 glass-morphism py-2 px-6">
+        <h1 class="text-white  text-3xl font-semibold mb-3">Weatheria</h1>
+        <div class="flex items-center justify-between gap-1 ">
+          <input type="text" placeholder="Search Place"
+            class="border rounded-lg px-3 h-10 w-full outline-none">
+          <button onclick><img src="./assets/icons/search-icon-2.png"
+              alt="search icon"></button>
+        </div>
+        <div>
+          <hr>
+          <span class="text-gray-600 text-lg font-semibold">OR</span>
+          <hr>
+        </div>
+        <button
+          class=" bg-gray-500 text-white px-3 h-10 text-lg rounded-lg w-full">Use
+          Current Location</button>
+      </div>
+      <!-- Hourly forcast widget -->
+      <div class="w-2/5 glass-morphism p-2">
+        <div class="flex items-center gap-2">
+          <img src="./assets/icons/clock-icon.png" alt="clock">
+          <h1 class="text-white opacity-80">HOURLY FORCAST</h1>
+        </div>
+        <div>
+          <ul class="flex items-center justify-between gap-1">
+
+          </ul>
+
+        </div>
+
+      </div>
+
+      <!-- 5 days forcast widget -->
+      <div class="w-2/5 glass-morphism">
+        <div>
+
+        </div>
+        <div>
+
+        </div>
+
+      </div>
+
+    </div>
+    <script src="./index.js"></script>
   </body>
 </html>
