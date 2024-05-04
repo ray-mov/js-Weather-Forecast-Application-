@@ -27,10 +27,12 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.41);
 }
 
-.list-item {
+#hourly-list li {
   display: flex;
   flex-direction: column;
-  width: 100%;
   justify-content: space-between;
   align-items: center;
+  color: white;
+  font-weight: 600;
+  
 }

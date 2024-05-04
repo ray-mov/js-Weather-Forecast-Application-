@@ -19,7 +19,8 @@
         <div class="flex items-center justify-between gap-1 ">
           <input type="text" placeholder="Search Place"
             class="border rounded-lg px-3 h-10 w-full outline-none">
-          <button onclick><img src="./assets/icons/search-icon-2.png"
+          <button id="search-btn"><img
+              src="./assets/icons/search-icon-2.png"
               alt="search icon"></button>
         </div>
         <div>
@@ -28,7 +29,7 @@
           <hr>
         </div>
         <button
-          class=" bg-gray-500 text-white px-3 h-10 text-lg rounded-lg w-full">Use
+          class=" bg-gray-500 text-white px-3 h-10 text-lg rounded-lg w-full" id=searchByLocation-btn>Use
           Current Location</button>
       </div>
       <!-- Hourly forcast widget -->
@@ -37,13 +38,11 @@
           <img src="./assets/icons/clock-icon.png" alt="clock">
           <h1 class="text-white opacity-80">HOURLY FORCAST</h1>
         </div>
-        <div>
-          <ul class="flex items-center justify-between gap-1">
+        <div class="pt-4">
+          <ul class="flex items-center justify-between gap-1 " id="hourly-list">
 
           </ul>
-
         </div>
-
       </div>
 
       <!-- 5 days forcast widget -->
@@ -58,6 +57,7 @@
       </div>
 
     </div>
-    <script src="./index.js"></script>
+    <script type="module" src="./index.js"></script>
+
   </body>
 </html>
