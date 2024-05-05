@@ -18,7 +18,7 @@
         <h1 class="text-white  text-3xl font-semibold mb-3">Weatheria</h1>
         <div class="flex items-center justify-between gap-1 ">
           <input type="text" placeholder="Search Place"
-            class="border rounded-lg px-3 h-10 w-full outline-none">
+            class="border rounded-lg px-3 h-10 w-full outline-none" id="searchInput">
           <button id="search-btn"><img
               src="./assets/icons/search-icon-2.png"
               alt="search icon"></button>
@@ -29,14 +29,15 @@
           <hr>
         </div>
         <button
-          class=" bg-gray-500 text-white px-3 h-10 text-lg rounded-lg w-full" id=searchByLocation-btn>Use
+          class=" bg-gray-500 text-white px-3 h-10 text-lg rounded-lg w-full"
+          id=searchByLocation-btn>Use
           Current Location</button>
       </div>
       <!-- Hourly forcast widget -->
       <div class="w-2/5 glass-morphism p-2">
         <div class="flex items-center gap-2">
           <img src="./assets/icons/clock-icon.png" alt="clock">
-          <h1 class="text-white opacity-80">HOURLY FORCAST</h1>
+          <h1 class="text-white opacity-80">HOURLY FORECAST</h1>
         </div>
         <div class="pt-4">
           <ul class="flex items-center justify-between gap-1 " id="hourly-list">
@@ -46,12 +47,15 @@
       </div>
 
       <!-- 5 days forcast widget -->
-      <div class="w-2/5 glass-morphism">
-        <div>
-
+      <div class="w-2/5 glass-morphism p-2">
+        <div class="flex items-center gap-2">
+          <img src="./assets/icons/calender-icon.png" alt="calender">
+          <h1 class="text-white opacity-80">5-DAYS FORECAST</h1>
         </div>
-        <div>
+        <div class="pt-4">
+          <ul class="flex items-center justify-between gap-1 " id="days-list">
 
+          </ul>
         </div>
 
       </div>

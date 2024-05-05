@@ -34,5 +34,13 @@ body {
   align-items: center;
   color: white;
   font-weight: 600;
-  
+}
+
+#days-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 600;
 }

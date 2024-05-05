@@ -1,4 +1,23 @@
-function extractDate(text) {
+function extractWeek(dateAndTimeString) {
+
+  const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+  // Extracting the date part 
+  const dateString = dateAndTimeString.split(' ')[0]
+  const date = new Date(dateString)
+  const weeksIndex = date.getDay()
+
+
+  // today's day
+  const today = new Date()
+  const todaysWeekIndex = today.getDay()
+
+  if (weeksIndex == todaysWeekIndex) {
+    return "Today"
+  } else {
+    return String(weeks[weeksIndex])
+  }
+
 
 }
 
@@ -24,6 +43,6 @@ function extractTime(dateAndTimeString) {
 }
 
 export {
-  extractDate,
+  extractWeek,
   extractTime
 };

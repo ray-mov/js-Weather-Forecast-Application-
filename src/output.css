@@ -654,10 +654,6 @@ video {
   padding-top: 1rem;
 }
 
-.pt-3 {
-  padding-top: 0.75rem;
-}
-
 .text-3xl {
   font-size: 1.875rem;
   line-height: 2.25rem;
@@ -718,6 +714,15 @@ body {
 }
 
 #hourly-list li {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  font-weight: 600;
+}
+
+#days-list li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
