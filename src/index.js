@@ -1,10 +1,12 @@
-import { extractWeek, extractTime } from "./helper.js";
+import { extractWeek, extractTime, todayWidget } from "./helper.js";
 import { updateClock } from "./clock.js";
 
 // clock widget
 updateClock()
 setInterval(updateClock, 1000);
 
+// today widget
+todayWidget();
 
 // seach by place btn
 const seachBtn = document.getElementById("search-btn")
@@ -30,7 +32,7 @@ async function fetchWeatherData() {
 
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=66a1ffd908f3eb068e415a88e095603f&units=metric`)
-     
+
 
     if (!response.ok) {
       if (response.status === 404) {
@@ -59,6 +61,12 @@ async function fetchWeatherData() {
       while (hourlyList.firstChild) {
         hourlyList.removeChild(hourlyList.firstChild);
       }
+
+
+      document.getElementById("temp-widget").textContent = `${data.list[1].main.temp}°`
+
+      document.getElementById("description-widget").textContent = data.list[0].weather[0].description
+      document.getElementById("place-widget").textContent = data.city.name
 
       // to show hourly (every 3 hours) forcast 6am to 12am 
       for (let i = 0; i < 8; i++) {
@@ -153,6 +161,11 @@ async function fetchWeatherDataGeolocation() {
           hourlyList.removeChild(hourlyList.firstChild);
         }
 
+        document.getElementById("temp-widget").textContent = `${data.list[1].main.temp}°`
+
+        document.getElementById("description-widget").textContent = data.list[0].weather[0].description
+        document.getElementById("place-widget").textContent = data.city.name
+
         // to show hourly (every 3 hours) forcast 6am to 12am 
         for (let i = 0; i < 8; i++) {
           const list = document.createElement("li")
@@ -179,7 +192,7 @@ async function fetchWeatherDataGeolocation() {
         throw new Error("Failed to fetch data")
       }
     } catch (error) {
-      alert(error)
+      alert(error.message)
 
     }
 
@@ -199,7 +212,7 @@ function fiveDayForcast(data) {
   }
 
   let i = 0
-  while (i < 40) {
+  while (i < 33) {
     const list = document.createElement("li")
 
     daysList.appendChild(list)
@@ -217,10 +230,10 @@ function fiveDayForcast(data) {
 
     i += 8;
 
-    // note openweather api provide upto list[39] 
-    if (i === 40) {
-      i = 39
-    }
+    // // note openweather api provide upto list[39] 
+    // if (i === 40) {
+    //   i = 39
+    // }
 
 
 

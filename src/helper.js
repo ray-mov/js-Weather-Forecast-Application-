@@ -42,7 +42,26 @@ function extractTime(dateAndTimeString) {
 
 }
 
+//today widget
+
+function todayWidget() {
+
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = today.getMonth() + 1;
+  const day = today.getDate();
+
+  // Formatting 
+  const todayString = (day < 10 ? '0' + day : day) + '-' + (month < 10 ? '0' + month : month) + '-' + year;
+
+  document.getElementById('today-widget').textContent = todayString
+}
+
 export {
   extractWeek,
-  extractTime
+  extractTime,
+  todayWidget
 };
+
+
+
