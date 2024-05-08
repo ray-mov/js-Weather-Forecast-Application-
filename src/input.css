@@ -16,18 +16,8 @@ body {
   background-position: center;
 }
 
-/* following desktop first approach */
-/* tailwinds default approach mobile first */
-
-@media (max-width: 1280px) {
-}
-@media (max-width: 1024px) {
-}
-
-@media (max-width: 768px) {
-}
-
-@media (max-width: 640px) {
+#dropdown-container.hidden {
+  display: none;
 }
 
 .glass-morphism {

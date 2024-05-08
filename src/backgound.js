@@ -5,25 +5,26 @@ function changeBackgroundWidget(data) {
   let spaceRemovedData = data.split(" ").join("");
 
   //note:- switch statement  : bcz all weather wallpaper cases is not handled
+  console.log(spaceRemovedData)
 
   switch (spaceRemovedData) {
-    case spaceRemovedData === "brokenclouds":
+    case "brokenclouds":
       break;
-    case spaceRemovedData === "clearsky":
+    case "clearsky":
       break;
-    case spaceRemovedData === "fewclouds":
+    case "fewclouds":
       break;
-    case spaceRemovedData === "mist":
+    case "mist":
       break;
-    case spaceRemovedData === "rain":
+    case "rain":
       break;
-    case spaceRemovedData === "scatterdclouds":
+    case "scatteredclouds":
       break;
-    case spaceRemovedData === "slowrrain":
+    case "slowrrain":
       break;
-    case spaceRemovedData === "snow":
+    case "snow":
       break;
-    case spaceRemovedData === "thunderstorm":
+    case "thunderstorm":
       break;
     default:
       spaceRemovedData = "city"

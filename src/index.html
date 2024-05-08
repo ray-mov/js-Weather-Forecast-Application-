@@ -8,7 +8,7 @@
   </head>
   <body class="p-5">
     <div
-      class="flex flex-col gap-4 m-10 justify-center items-center md:flex-row lg:flex-col lg:items-start lg:justify-start lg:m-1 ">
+      class="flex flex-col gap-4 m-2 justify-center items-center md:flex-row lg:flex-col lg:items-start lg:justify-start lg:m-1 ">
       <div
         class="glass-morphism flex items-center justify-center p-2">
         <h1 class="text-6xl text-white opacity-80 font-bold"
@@ -29,16 +29,29 @@
       </div>
     </div>
     <div
-      class="flex gap-3 pt-4 flex-col justify-center items-center md:mt-40 lg:flex-row lg:flex-wrap lg:pt-0 lg:items-start lg:justify-start xl:flex-nowrap lg:mt-24">
+      class="flex gap-3 pt-2 flex-col justify-center items-center lg:flex-row lg:flex-wrap lg:pt-0 lg:items-start lg:justify-start xl:flex-nowrap lg:mt-24">
 
       <!-- search widget -->
       <div
         class=" flex flex-col items-center gap-2 h-full glass-morphism py-2 px-6 ">
         <h1 class="text-white  text-3xl font-semibold mb-3">Weatheria</h1>
-        <div class="flex items-center justify-between gap-2 ">
-          <input type="text" placeholder="Search Place"
-            class="border rounded-lg px-3 h-10 w-full outline-none"
-            id="searchInput">
+        <div class="flex items-center justify-between gap-2 relative">
+          <div class="bg-white border rounded-lg">
+            <div class="bg-white flex border rounded-lg px-2">
+              <input type="text" placeholder="Search Place"
+                class=" px-3 h-10 w-full outline-none rounded-lg"
+                id="searchInput">
+              <button class="hover:scale-125" id="dropdown-btn"><img
+                  src="./assets/icons/down-icon.png"
+                  alt="down arrow"></button>
+            </div>
+            <div
+              class="flex flex-col font-semibold pt-2 text-white gap-2  overflow-y-auto absolute  top-10  max-h-36 bg-black left-0 w-5/6 opacity-85 rounded-lg transition-transform delay-100"
+              id="dropdown-container">
+
+            </div>
+
+          </div>
           <button id="search-btn"><img
               src="./assets/icons/searchicon.png"
               alt="search icon"

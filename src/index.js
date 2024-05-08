@@ -18,6 +18,46 @@ seachBtn.addEventListener("click", fetchWeatherData)
 const searchByLocationBtn = document.getElementById("searchByLocation-btn")
 searchByLocationBtn.addEventListener("click", fetchWeatherDataGeolocation)
 
+// fucntion to get data from local storage
+function getData() {
+  const myData = localStorage.getItem("searchHistory");
+  return myData == null ? [] : JSON.parse(myData)
+}
+
+//dropdown functions and population drop down
+
+function populatedSeachistory() {
+
+  const dropDownBtn = document.getElementById("dropdown-btn")
+  dropDownBtn.addEventListener("click", showAndHideDropdownMenu)
+
+  const history = getData()
+  if (history) {
+    const dropdownMenu = document.getElementById("dropdown-container")
+    //removing previous html
+    while (dropdownMenu.firstChild) {
+      dropdownMenu.removeChild(dropdownMenu.firstChild);
+    }
+
+    history.forEach(item => {
+      const text = document.createElement("h1")
+      text.textContent = item;
+      dropdownMenu.appendChild(text);
+      text.addEventListener("click", () => {
+        const innerContent = this.innerHTML;
+        const inputElement = document.getElementById("searchInput")
+        inputElement.value = innerContent;
+        fetchWeatherData()
+      })
+    });
+  }
+}
+
+populatedSeachistory()
+
+function showAndHideDropdownMenu() {
+  document.getElementById("dropdown-container").classList.toggle("hidden")
+}
 
 //  Search By place name function
 
@@ -28,8 +68,8 @@ async function fetchWeatherData() {
   if (searchValue === "") {
     alert("Empty Input")
     return
-
   }
+
 
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=66a1ffd908f3eb068e415a88e095603f&units=metric`)
@@ -63,11 +103,31 @@ async function fetchWeatherData() {
         hourlyList.removeChild(hourlyList.firstChild);
       }
 
-
       document.getElementById("temp-widget").textContent = `${data.list[1].main.temp}°`
 
       document.getElementById("description-widget").textContent = data.list[0].weather[0].description
       document.getElementById("place-widget").textContent = data.city.name
+
+      // saving city name to local storage for search history
+
+      const searchHistory = getData()
+
+
+      // to eleminate duplicate history and remove if the item found
+      // to show on prevous search
+
+      searchHistory.forEach((item, index) => {
+        if (item === data.city.name) {
+          searchHistory.splice(index, 1);
+        }
+      })
+
+
+      searchHistory.unshift(data.city.name)
+      localStorage.setItem("searchHistory", JSON.stringify(searchHistory))
+      populatedSeachistory()
+
+
 
       changeBackgroundWidget(data.list[0].weather[0].description)
 
@@ -89,9 +149,9 @@ async function fetchWeatherData() {
         list.appendChild(listItemTemp);
       }
 
-      //also populating 5 days of forcast
+      // also populating 5 days of forcast
 
-      // fiveDayForcast(data)
+      fiveDayForcast(data)
 
     } else {
       throw new Error("Failed to fetch data")
