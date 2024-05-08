@@ -7,41 +7,45 @@
     <link href="./output.css" rel="stylesheet">
   </head>
   <body class="p-5">
-    <div class=" h-3/5 w-full flex flex-col gap-2">
+    <div
+      class="flex flex-col gap-4 m-10 justify-center items-center md:flex-row">
       <div
-        class=" h-1/6 w-2/12 glass-morphism flex items-center justify-center">
-        <h1 class="text-6xl text-white opacity-75" id="clock-widget"></h1>
+        class="glass-morphism flex items-center justify-center p-2">
+        <h1 class="text-6xl text-white opacity-80 font-bold"
+          id="clock-widget"></h1>
       </div>
       <div
-        class=" h-3/6 w-2/12 flex-col glass-morphism flex items-center justify-center">
-        <h1 class="text-7xl text-yellow-300 opacity-90" id="temp-widget"></h1>
+        class="  flex-col glass-morphism flex items-center justify-center p-2">
+        <h1 class="text-7xl text-yellow-400 xl:text-3xl  font-bold"
+          id="temp-widget"></h1>
         <h1 class="text-xl text-white opacity-75"
           id="description-widget"></h1>
         <h1 class="text-2xl text-white opacity-75" id="place-widget"></h1>
       </div>
       <div
-        class=" h-1/6 w-2/12 glass-morphism flex items-center justify-center">
-        <h1 class="text-4xl text-blue-800  font-bold opacity-75"
+        class="  glass-morphism flex items-center justify-center p-2">
+        <h1 class="text-4xl text-blue-700  font-bold opacity-80 md:text-sky-300"
           id="today-widget"></h1>
       </div>
     </div>
-    <div class="flex gap-3 pt-4 ">
+    <div class="flex gap-3 pt-4 flex-col justify-center items-center md:mt-40">
 
       <!-- search widget -->
       <div
-        class=" flex flex-col items-center gap-2 h-full w-1/5 glass-morphism py-2 px-6">
+        class=" flex flex-col items-center gap-2 h-full glass-morphism py-2 px-6">
         <h1 class="text-white  text-3xl font-semibold mb-3">Weatheria</h1>
-        <div class="flex items-center justify-between gap-1 ">
+        <div class="flex items-center justify-between gap-2 ">
           <input type="text" placeholder="Search Place"
             class="border rounded-lg px-3 h-10 w-full outline-none"
             id="searchInput">
           <button id="search-btn"><img
-              src="./assets/icons/search-icon-2.png"
-              alt="search icon"></button>
+              src="./assets/icons/searchicon.png"
+              alt="search icon"
+              class="hover:scale-125"></button>
         </div>
         <div>
           <hr>
-          <span class="text-gray-600 text-lg font-semibold">OR</span>
+          <span class="text-gray-300 text-lg font-semibold">OR</span>
           <hr>
         </div>
         <button
@@ -50,20 +54,22 @@
           Current Location</button>
       </div>
       <!-- Hourly forcast widget -->
-      <div class="w-2/5 glass-morphism p-2">
+      <div class=" glass-morphism p-2 mx-1 hidden sm:block">
         <div class="flex items-center gap-2">
           <img src="./assets/icons/clock-icon.png" alt="clock">
           <h1 class="text-white opacity-80">HOURLY FORECAST</h1>
         </div>
         <div class="pt-4">
-          <ul class="flex items-center justify-between gap-1 " id="hourly-list">
+          <ul
+            class="flex items-center justify-between gap-1  whitespace-nowrap "
+            id="hourly-list">
 
           </ul>
         </div>
       </div>
 
       <!-- 5 days forcast widget -->
-      <div class="w-2/5 glass-morphism p-2">
+      <div class=" glass-morphism p-2 ">
         <div class="flex items-center gap-2">
           <img src="./assets/icons/calender-icon.png" alt="calender">
           <h1 class="text-white opacity-80">5-DAYS FORECAST</h1>

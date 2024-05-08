@@ -57,6 +57,24 @@ function todayWidget() {
   document.getElementById('today-widget').textContent = todayString
 }
 
+
+
+
+// function changeBackgroundWidget(params) {
+//   01d.png 		clear sky
+// 02d.png 		few clouds
+// 03d.png 		scattered clouds
+// 04d.png 		broken clouds
+// 09d.png  	shower rain
+//   10d.png  	rain
+//   11d.png  	thunderstorm
+//   13d.png 		snow
+//   50d.
+
+
+
+
+
 export {
   extractWeek,
   extractTime,

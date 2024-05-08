@@ -1,5 +1,6 @@
 import { extractWeek, extractTime, todayWidget } from "./helper.js";
 import { updateClock } from "./clock.js";
+import { changeBackgroundWidget } from "./backgound.js";
 
 // clock widget
 updateClock()
@@ -67,6 +68,8 @@ async function fetchWeatherData() {
 
       document.getElementById("description-widget").textContent = data.list[0].weather[0].description
       document.getElementById("place-widget").textContent = data.city.name
+
+      changeBackgroundWidget(data.list[0].weather[0].description)
 
       // to show hourly (every 3 hours) forcast 6am to 12am 
       for (let i = 0; i < 8; i++) {
@@ -166,6 +169,7 @@ async function fetchWeatherDataGeolocation() {
         document.getElementById("description-widget").textContent = data.list[0].weather[0].description
         document.getElementById("place-widget").textContent = data.city.name
 
+        changeBackgroundWidget(String(data.list[0].weather[0].description))
         // to show hourly (every 3 hours) forcast 6am to 12am 
         for (let i = 0; i < 8; i++) {
           const list = document.createElement("li")
