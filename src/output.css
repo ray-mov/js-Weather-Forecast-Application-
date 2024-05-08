@@ -833,6 +833,22 @@ body {
 }
 
 @media (min-width: 1024px) {
+  .lg\:m-5 {
+    margin: 1.25rem;
+  }
+
+  .lg\:m-2 {
+    margin: 0.5rem;
+  }
+
+  .lg\:m-1 {
+    margin: 0.25rem;
+  }
+
+  .lg\:mt-24 {
+    margin-top: 6rem;
+  }
+
   .lg\:flex {
     display: flex;
   }
@@ -857,12 +873,36 @@ body {
     justify-content: flex-start;
   }
 
+  .lg\:gap-1 {
+    gap: 0.25rem;
+  }
+
   .lg\:pt-0 {
     padding-top: 0px;
   }
 }
 
 @media (min-width: 1280px) {
+  .xl\:m-2 {
+    margin: 0.5rem;
+  }
+
+  .xl\:m-1 {
+    margin: 0.25rem;
+  }
+
+  .xl\:flex {
+    display: flex;
+  }
+
+  .xl\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .xl\:gap-0 {
+    gap: 0px;
+  }
+
   .xl\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
