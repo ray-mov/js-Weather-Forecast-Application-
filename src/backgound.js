@@ -2,11 +2,33 @@
 
 
 function changeBackgroundWidget(data) {
-  const spaceRemovedData = data.split(" ").join("");
-  // console.log(dataString)
-  // console.log(bgImage.dataString)
-  // const newImage = "url('new-background-image.jpg')";
-  // document.querySelector("body").style.backgroundImage = "url('https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTcybm4yZjZiaTltODNhN3A0emM4eXRldzk0aGl3bTJ5NWQ1YWI1YyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BUmhIx48cZQ8Dc24Fa/giphy.gif')"
+  let spaceRemovedData = data.split(" ").join("");
+  
+
+  switch (spaceRemovedData) {
+    case spaceRemovedData === "brokenclouds":
+      break;
+    case spaceRemovedData === "clearsky":
+      break;
+    case spaceRemovedData === "fewclouds":
+      break;
+    case spaceRemovedData === "mist":
+      break;
+    case spaceRemovedData === "rain":
+      break;
+    case spaceRemovedData === "scatterdclouds":
+      break;
+    case spaceRemovedData === "slowrrain":
+      break;
+    case spaceRemovedData === "snow":
+      break;
+    case spaceRemovedData === "thunderstorm":
+      break;
+    default:
+      spaceRemovedData = ""
+      break;
+  }
+
 
   const res = document.querySelector("body").style.backgroundImage = `url('./assets/weather_pic/${spaceRemovedData}.jpg')`
   console.log(res)
