@@ -1,4 +1,4 @@
-# Student Registration System
+# Weather Forecast Dashboard
 
 This project is a Weather Forecast Dashboard using HTML, Tailwind CSS and Javascript
 with OpenWeather API
