@@ -7,33 +7,83 @@
     <link href="./output.css" rel="stylesheet">
   </head>
   <body class="p-5">
+
+    <!-- main 1 -->
+
     <div
-      class="flex flex-col gap-4 m-2 justify-center items-center md:flex-row lg:flex-col lg:items-start lg:justify-start lg:m-1 ">
-      <div
-        class="glass-morphism flex items-center justify-center p-2">
-        <h1 class="text-6xl text-white opacity-80 font-bold"
-          id="clock-widget"></h1>
+      class="flex flex-col gap-2 m-2 justify-center items-center  lg:flex-col lg:items-start lg:justify-start lg:m-1 ">
+
+      <!-- time,date,humidity,wind widget -->
+      <div class="flex gap-2 flex-col md:flex-row">
+        <!-- time -->
+        <div
+          class="glass-morphism flex items-center justify-center p-2">
+          <h1 class="text-6xl text-white opacity-80 font-bold"
+            id="clock-widget"></h1>
+        </div>
+        <!-- date -->
+        <div
+          class=" glass-morphism flex items-center justify-center p-2 gap-1">
+          <img src="./assets/icons/calender-bg-icon.png" alt="calender">
+          <h1
+            class="text-4xl text-blue-700  font-bold opacity-80 md:text-sky-300"
+            id="today-widget"></h1>
+        </div>
+        <!-- humidity -->
+        <div
+          class="  glass-morphism flex items-center gap-1 justify-center p-2">
+          <img src="./assets/icons/humidity-bg-icon.png" alt="humidity levels">
+          <h1
+            class="text-4xl text-sky-300  font-bold opacity-90 md:text-sky-300"
+            id="humidity-widget"></h1>
+        </div>
+        <!-- wind -->
+        <div
+          class="  glass-morphism flex items-center gap-1 justify-center p-2">
+          <img src="./assets/icons/wind-bg.png" alt="wind"
+            class="bg-transparent">
+          <h1
+            class="text-4xl text-sky-300  font-bold opacity-90 md:text-sky-300"
+            id="wind-widget"></h1>
+        </div>
+
       </div>
-      <div
-        class="  flex-col glass-morphism flex items-center justify-center p-2">
-        <h1 class="text-7xl text-yellow-400  font-bold  "
-          id="temp-widget"></h1>
-        <h1 class="text-xl text-white opacity-75"
-          id="description-widget"></h1>
-        <h1 class="text-2xl text-white opacity-75" id="place-widget"></h1>
+      <div class="flex gap-2">
+        <!-- //temp-widget -->
+        <div
+          class="  flex-col glass-morphism flex items-center justify-center p-2">
+          <h1 class="text-7xl text-yellow-400  font-bold  "
+            id="temp-widget"></h1>
+          <h1 class="text-xl text-white opacity-75"
+            id="description-widget"></h1>
+          <h1 class="text-2xl text-white opacity-75" id="place-widget"></h1>
+        </div>
+        <!-- Hourly forcast widget -->
+        <div class=" glass-morphism p-2 mx-1 hidden sm:block">
+          <div class="flex items-center gap-2">
+            <img src="./assets/icons/clock-icon.png" alt="clock">
+            <h1 class="text-white opacity-80">HOURLY FORECAST</h1>
+          </div>
+          <div class="pt-4">
+            <ul
+              class="flex items-center justify-between gap-1  whitespace-nowrap "
+              id="hourly-list">
+
+            </ul>
+          </div>
+        </div>
+
       </div>
-      <div
-        class="  glass-morphism flex items-center justify-center p-2">
-        <h1 class="text-4xl text-blue-700  font-bold opacity-80 md:text-sky-300"
-          id="today-widget"></h1>
-      </div>
+
     </div>
+
+    <!-- main 2 -->
     <div
-      class="flex gap-3 pt-2 flex-col justify-center items-center lg:flex-row lg:flex-wrap lg:pt-0 lg:items-start lg:justify-start xl:flex-nowrap lg:mt-24">
+      class="flex gap-3 flex-col justify-center items-center lg:flex-row lg:pt-0 lg:items-start lg:justify-start xl:flex-nowrap lg:mt-10">
 
       <!-- search widget -->
       <div
-        class=" flex flex-col items-center gap-2 h-full glass-morphism py-2 px-6 ">
+        class=" flex flex-col items-center gap-2 h-full glass-morphism py-2 px-6  lg:w-2/6">
         <h1 class="text-white  text-3xl font-semibold mb-3">Weatheria</h1>
         <div class="flex items-center justify-between gap-2 relative">
           <div class="bg-white border rounded-lg">
@@ -46,7 +96,7 @@
                   alt="down arrow"></button>
             </div>
             <div
-              class="flex flex-col font-semibold pt-2 text-white gap-2  overflow-y-auto absolute  top-10  max-h-36 bg-black left-0 w-5/6 opacity-85 rounded-lg transition-transform delay-100"
+              class="text-center hidden font-semibold pt-2 text-white gap-2  overflow-y-auto absolute  top-10  max-h-36 bg-black left-0 w-5/6 opacity-85 rounded-lg transition-transform delay-100 "
               id="dropdown-container">
 
             </div>
@@ -67,23 +117,9 @@
           id=searchByLocation-btn>Use
           Current Location</button>
       </div>
-      <!-- Hourly forcast widget -->
-      <div class=" glass-morphism p-2 mx-1 hidden sm:block">
-        <div class="flex items-center gap-2">
-          <img src="./assets/icons/clock-icon.png" alt="clock">
-          <h1 class="text-white opacity-80">HOURLY FORECAST</h1>
-        </div>
-        <div class="pt-4">
-          <ul
-            class="flex items-center justify-between gap-1  whitespace-nowrap "
-            id="hourly-list">
-
-          </ul>
-        </div>
-      </div>
 
       <!-- 5 days forcast widget -->
-      <div class=" glass-morphism p-2 ">
+      <div class=" glass-morphism p-2 w-full">
         <div class="flex items-center gap-2">
           <img src="./assets/icons/calender-icon.png" alt="calender">
           <h1 class="text-white opacity-80">5-DAYS FORECAST</h1>

@@ -46,3 +46,22 @@ body {
   color: white;
   font-weight: 600;
 }
+
+#dropdown-container h1 {
+  text-align: center;
+  border-bottom: 1px solid rgb(39, 38, 38);
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.listItemWindContainer {
+  display: flex;
+  padding-top: 16px;
+  gap: 5px;
+}
+
+.listItemHumidityConatiner {
+  display: flex;
+  padding-top: 16px;
+  gap: 5px;
+}

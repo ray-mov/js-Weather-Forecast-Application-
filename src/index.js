@@ -43,10 +43,9 @@ function populatedSeachistory() {
       const text = document.createElement("h1")
       text.textContent = item;
       dropdownMenu.appendChild(text);
-      text.addEventListener("click", () => {
-        const innerContent = this.innerHTML;
-        const inputElement = document.getElementById("searchInput")
-        inputElement.value = innerContent;
+      text.addEventListener("click", (event) => {
+        const innerContent = event.target.innerHTML;
+        document.getElementById("searchInput").value = innerContent
         fetchWeatherData()
       })
     });
@@ -71,6 +70,7 @@ async function fetchWeatherData() {
   }
 
 
+
   try {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${searchValue}&appid=66a1ffd908f3eb068e415a88e095603f&units=metric`)
 
@@ -92,26 +92,19 @@ async function fetchWeatherData() {
         return
       }
 
+
       fiveDayForcast(data)
 
-      const hourlyList = document.getElementById("hourly-list")
-
-
-      // Looping through each child element and remove it
-      // for clearing html if previously exit 
-      while (hourlyList.firstChild) {
-        hourlyList.removeChild(hourlyList.firstChild);
-      }
 
       document.getElementById("temp-widget").textContent = `${data.list[1].main.temp}°`
-
       document.getElementById("description-widget").textContent = data.list[0].weather[0].description
       document.getElementById("place-widget").textContent = data.city.name
+      document.getElementById("humidity-widget").textContent = data.list[0].main.humidity
+      document.getElementById("wind-widget").textContent = data.list[0].wind.speed
 
       // saving city name to local storage for search history
 
       const searchHistory = getData()
-
 
       // to eleminate duplicate history and remove if the item found
       // to show on prevous search
@@ -127,9 +120,21 @@ async function fetchWeatherData() {
       localStorage.setItem("searchHistory", JSON.stringify(searchHistory))
       populatedSeachistory()
 
-
-
       changeBackgroundWidget(data.list[0].weather[0].description)
+
+
+
+
+      // Looping through each child element and remove it
+      // for clearing html if previously exit 
+
+
+      const hourlyList = document.getElementById("hourly-list")
+
+      while (hourlyList.firstChild) {
+        hourlyList.removeChild(hourlyList.firstChild);
+      }
+
 
       // to show hourly (every 3 hours) forcast 6am to 12am 
       for (let i = 0; i < 8; i++) {
@@ -139,14 +144,19 @@ async function fetchWeatherData() {
         const listItemTime = document.createElement("p")
         const listItemIcon = document.createElement("img")
         const listItemTemp = document.createElement("p")
+
+
+
         listItemTime.textContent = extractTime(data.list[i].dt_txt)
         listItemIcon.src = `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png`
         listItemTemp.textContent = `${data.list[i].main.temp}°C`
+
 
         //appending list
         list.appendChild(listItemTime);
         list.appendChild(listItemIcon);
         list.appendChild(listItemTemp);
+
       }
 
       // also populating 5 days of forcast
@@ -157,6 +167,7 @@ async function fetchWeatherData() {
       throw new Error("Failed to fetch data")
     }
   } catch (error) {
+    console.log("aler 1")
     alert(error.message)
   }
 
@@ -179,12 +190,9 @@ async function fetchWeatherDataGeolocation() {
       const long = position.coords.longitude;
 
       fetchData(lat, long)
-
-
-
     }, (err) => {
 
-      //note fixed code 
+      //note fixed code // DNT
 
       switch (err.code) {
         case err.PERMISSION_DENIED:
@@ -200,7 +208,7 @@ async function fetchWeatherDataGeolocation() {
           console.err("An unknown err occurred.");
           break;
       }
-
+       //------xxxxxxxxxx----------
     })
 
   } else {
@@ -224,12 +232,19 @@ async function fetchWeatherDataGeolocation() {
           hourlyList.removeChild(hourlyList.firstChild);
         }
 
-        document.getElementById("temp-widget").textContent = `${data.list[1].main.temp}°`
+        //populating widgets
 
+        document.getElementById("temp-widget").textContent = `${data.list[1].main.temp}°`
         document.getElementById("description-widget").textContent = data.list[0].weather[0].description
         document.getElementById("place-widget").textContent = data.city.name
+        document.getElementById("humidity-widget").textContent = data.list[0].main.humidity
+        document.getElementById("wind-widget").textContent = data.list[0].wind.speed
+
+        
 
         changeBackgroundWidget(String(data.list[0].weather[0].description))
+
+
         // to show hourly (every 3 hours) forcast 6am to 12am 
         for (let i = 0; i < 8; i++) {
           const list = document.createElement("li")
@@ -278,29 +293,49 @@ function fiveDayForcast(data) {
   let i = 0
   while (i < 33) {
     const list = document.createElement("li")
-
     daysList.appendChild(list)
     const listItemTime = document.createElement("p")
     const listItemIcon = document.createElement("img")
     const listItemTemp = document.createElement("p")
+    const listItemHumidityIcon = document.createElement("img")
+    const listItemHumidity = document.createElement("p")
+    const listItemWindIcon = document.createElement("img")
+    const listItemWind = document.createElement("p")
+    const listItemWindContainer = document.createElement("div")
+    const listItemHumidityConatiner = document.createElement("div")
+    listItemHumidityConatiner.classList.add("listItemHumidityConatiner")
+    listItemWindContainer.classList.add("listItemWindContainer")
+
+    listItemHumidityConatiner.appendChild(listItemHumidityIcon)
+    listItemHumidityConatiner.appendChild(listItemHumidity)
+
+    listItemWindContainer.appendChild(listItemWindIcon)
+    listItemWindContainer.appendChild(listItemWind)
+
+
     listItemTime.textContent = extractWeek(data.list[i].dt_txt)
     listItemIcon.src = `https://openweathermap.org/img/wn/${data.list[i].weather[0].icon}@2x.png`
+    
     listItemTemp.textContent = `${data.list[i].main.temp}°C`
+
+    
+    listItemHumidity.textContent = data.list[i].main.humidity
+
+  
+
+    listItemWind.textContent = data.list[i].wind.speed
+    
+    listItemHumidityIcon.src = "./assets/icons/humidity-icon.png"
+    listItemWindIcon.src = "./assets/icons/wind-icon.png"
 
     //appending list
     list.appendChild(listItemTime);
     list.appendChild(listItemIcon);
     list.appendChild(listItemTemp);
+    list.appendChild(listItemHumidityConatiner);
+    list.appendChild(listItemWindContainer);
 
     i += 8;
-
-    // // note openweather api provide upto list[39] 
-    // if (i === 40) {
-    //   i = 39
-    // }
-
-
-
 
   }
 

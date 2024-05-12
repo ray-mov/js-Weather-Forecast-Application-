@@ -574,14 +574,6 @@ video {
   top: 2.5rem;
 }
 
-.m-10 {
-  margin: 2.5rem;
-}
-
-.m-5 {
-  margin: 1.25rem;
-}
-
 .m-2 {
   margin: 0.5rem;
 }
@@ -613,6 +605,10 @@ video {
 
 .max-h-36 {
   max-height: 9rem;
+}
+
+.w-2\/6 {
+  width: 33.333333%;
 }
 
 .w-5\/6 {
@@ -651,10 +647,6 @@ video {
   gap: 0.75rem;
 }
 
-.gap-4 {
-  gap: 1rem;
-}
-
 .overflow-y-auto {
   overflow-y: auto;
 }
@@ -679,6 +671,10 @@ video {
 .bg-gray-500 {
   --tw-bg-opacity: 1;
   background-color: rgb(107 114 128 / var(--tw-bg-opacity));
+}
+
+.bg-transparent {
+  background-color: transparent;
 }
 
 .bg-white {
@@ -720,6 +716,10 @@ video {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.text-center {
+  text-align: center;
 }
 
 .text-2xl {
@@ -775,6 +775,11 @@ video {
   color: rgb(209 213 219 / var(--tw-text-opacity));
 }
 
+.text-sky-300 {
+  --tw-text-opacity: 1;
+  color: rgb(125 211 252 / var(--tw-text-opacity));
+}
+
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -795,6 +800,10 @@ video {
 
 .opacity-85 {
   opacity: 0.85;
+}
+
+.opacity-90 {
+  opacity: 0.9;
 }
 
 .outline-none {
@@ -858,6 +867,25 @@ body {
   font-weight: 600;
 }
 
+#dropdown-container h1 {
+  text-align: center;
+  border-bottom: 1px solid rgb(39, 38, 38);
+  padding-bottom: 5px;
+  cursor: pointer;
+}
+
+.listItemWindContainer {
+  display: flex;
+  padding-top: 16px;
+  gap: 5px;
+}
+
+.listItemHumidityConatiner {
+  display: flex;
+  padding-top: 16px;
+  gap: 5px;
+}
+
 .hover\:scale-125:hover {
   --tw-scale-x: 1.25;
   --tw-scale-y: 1.25;
@@ -871,18 +899,6 @@ body {
 }
 
 @media (min-width: 768px) {
-  .md\:mt-40 {
-    margin-top: 10rem;
-  }
-
-  .md\:mt-10 {
-    margin-top: 2.5rem;
-  }
-
-  .md\:mt-6 {
-    margin-top: 1.5rem;
-  }
-
   .md\:flex-row {
     flex-direction: row;
   }
@@ -898,8 +914,12 @@ body {
     margin: 0.25rem;
   }
 
-  .lg\:mt-24 {
-    margin-top: 6rem;
+  .lg\:mt-10 {
+    margin-top: 2.5rem;
+  }
+
+  .lg\:w-2\/6 {
+    width: 33.333333%;
   }
 
   .lg\:flex-row {
@@ -908,10 +928,6 @@ body {
 
   .lg\:flex-col {
     flex-direction: column;
-  }
-
-  .lg\:flex-wrap {
-    flex-wrap: wrap;
   }
 
   .lg\:items-start {
